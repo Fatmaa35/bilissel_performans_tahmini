@@ -1,11 +1,11 @@
-md_content = """# 🧠 Bilişsel Performans Skoru Tahmini
+🧠 Bilişsel Performans Skoru Tahmini
 
 Bu depo, yaşam tarzı, uyku düzeni, stres metrikleri ve biyometrik verileri kullanarak bireylerin **Bilişsel Performans Skoru**'nu tahmin etmek için geliştirilmiş uçtan uca bir makine öğrenmesi boru hattını (pipeline) içermektedir.
 
-## 🚀 Proje Özeti
+ 🚀 Proje Özeti
 Model, ağaç tabanlı algoritmaların (LightGBM ve CatBoost) zayıf ve güçlü yanlarını dengeleyen, aykırı değerlere dirençli (robust) bir **Huber Stacking** mimarisi üzerine kurulmuştur. Genelleme yeteneğini artırmak için **5-Seed Averaging** ve **Yeo-Johnson** hedef değişken dönüşümü kullanılmıştır. Yüksek boyutlu verilerdeki karmaşık ilişkiler, Unsupervised Learning (Gözetimsiz Öğrenme) teknikleriyle haritalandırılmıştır.
 
-## 🏗️ Model Mimarisi ve Pipeline Adımları
+🏗️ Model Mimarisi ve Pipeline Adımları
 
 1. **Hedef Varyans Stabilizasyonu (Target Transformation):**
    - Ağaç tabanlı modellerin çarpıklığa (skewness) hassasiyetini azaltmak için hedef değişkene `PowerTransformer (Yeo-Johnson)` uygulandı.
@@ -27,13 +27,13 @@ Model, ağaç tabanlı algoritmaların (LightGBM ve CatBoost) zayıf ve güçlü
    - Başlangıç rastgeleliğini sönümlemek için her model 5 farklı rastgele tohum (seed) ile 5-Fold CV kullanılarak eğitildi.
    - **Meta-Model (Level-1):** OOF (Out-of-Fold) tahminleri birleştirilirken, standart Ridge cezası yerine uç hatalara dirençli **Huber Regressor** kullanıldı.
 
-## 🛠️ Kullanılan Teknolojiler
+ 🛠️ Kullanılan Teknolojiler
 - **Diller:** Python
 - **Kütüphaneler:** Scikit-Learn, LightGBM, CatBoost, Pandas, NumPy, Matplotlib, Seaborn
 
-## 📂 Dosya Yapısı
+ 📂 Dosya Yapısı
 - `bilissel-performans_tahmini.ipynb`: Veri ön işleme, özellik mühendisliği, model eğitimi ve tahminleme aşamalarını barındıran ana çalışma dosyası.
 - `submission.csv`: Kaggle liderlik tablosu için üretilen nihai tahmin çıktısı (0-10 aralığına np.clip ile sabitlenmiş).
 
-## ⚙️ Nasıl Çalıştırılır?
+ ⚙️ Nasıl Çalıştırılır?
 1. İlgili kütüphanelerin sisteminizde veya sanal ortamınızda yüklü olduğundan emin olun:
